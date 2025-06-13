@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Xác minh Duy Đinh</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 10px;
+      padding: 20px 30px;
+      box-shadow: 0 0 15px #ccc;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #0073e6;
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      row-gap: 15px;
+      column-gap: 10px;
+      font-size: 16px;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+      justify-content: center;
+    }
+
+    .img-box {
+      width: 120px;
+      height: 120px;
+      overflow: hidden;
+      border-radius: 6px;
+      position: relative;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      cursor: pointer;
+    }
+
+    .img-box:hover img {
+      transform: scale(2.3);
+      z-index: 10;
+      position: relative;
+      box-shadow: 0 0 15px rgba(0, 115, 230, 0.5);
+    }
+
+    .verified-badge {
+      display: inline-block;
+      background: #0073e6;
+      color: white;
+      font-weight: bold;
+      padding: 5px 12px;
+      border-radius: 5px;
+      font-size: 13px;
+      margin-top: 10px;
+      box-shadow: 0 0 5px #0073e6;
+    }
+
+    .warning {
+      background: #e7f4ff;
+      padding: 10px;
+      border-left: 5px solid #0073e6;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+
+    a {
+      color: #0073e6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 13px;
+      color: gray;
+      text-align: center;
+    }
+    .lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00f0ff;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px; right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>🔐 Thông tin xác minh:</h2>
+    <div class="info">
+      <div>👤</div><div><span class="label">Chủ TK:</span> Duy Đinh</div>
+      <div>💳</div><div><span class="label">STK:</span> 0562872212</div>
+      <div>🏦</div><div><span class="label">Ngân hàng:</span> CAKE BANK</div>
+      <div>🗂️</div><div><span class="label">Hạng mục:</span> Giao dịch uy tín</div>
+      <div>🖼️</div><div>
+        <span class="label">Ảnh bằng chứng:</span>
+        <div class="gallery">
+          <div class="img-box"><img src="Picture/Legit1.png" alt="bằng chứng"></div>
+          <div class="img-box"><img src="Picture/legit2.png" alt="bằng chứng"></div>
+          <div class="img-box"><img src="Picture/legit3.png" alt="bằng chứng"></div>
+        </div>
+        <div class="verified-badge">VERIFIED ✅</div>
+      </div>
+    </div>
+    <div class="lightbox" id="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="">
+</div>
+
+    <div class="warning">
+      📝 Đây là tài khoản đã được xác minh là chính chủ.  
+      Giao dịch an toàn, không có báo cáo lừa đảo đến thời điểm hiện tại.
+    </div>
+
+    <footer>
+      📌 Trang xác thực bởi chính chủ Duy Đinh
+    </footer>
+  </div>
+  <script>
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const thumbnails = document.querySelectorAll(".img-box img");
+
+  thumbnails.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.style.display = "none";
+  }
+
+  // Đóng bằng phím ESC
+  window.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+  // Click ngoài ảnh để tắt
+  lightbox.addEventListener("click", e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+</script>
+
+</body>
+</html>
