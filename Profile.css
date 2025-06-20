@@ -15,13 +15,13 @@ a,
 #playPauseBtn,
 #prevBtn,
 #nextBtn {
-  cursor: url('/Picture/PeaShooter.cur')16 16, pointer;
+  cursor: url('./Picture/PeaShooter.cur')16 16, pointer;
 }
 
 /* Khi đang bấm giữ */
 button:active,
 a:active {
-  cursor: url('/Picture/SnowPea.ico')16 16, pointer;
+  cursor: url('./Picture/SnowPea.ico')16 16, pointer;
 }
 
 .page-center {
@@ -81,7 +81,7 @@ a:active {
   height: 100px;
   margin: 20px auto;
   border-radius: 50%;
-  background: url('/Picture/cd.jpg') center/cover no-repeat;
+  background: url('./Picture/cd.jpg') center/cover no-repeat;
   animation: spin 3s linear infinite;
   animation-play-state: paused;
 }
