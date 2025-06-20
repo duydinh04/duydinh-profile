@@ -1,20 +1,37 @@
-window.addEventListener('DOMContentLoaded', () => {
-  audio.play().then(() => {
-    audio.muted = false; // 🔊 Bật tiếng sau khi play thành công
-    disc.style.animationPlayState = 'running';
-    playPauseBtn.innerHTML = '<i class="ri-pause-line"></i>';
-    isPlaying = true;
-  }).catch(err => {
-    console.warn("Autoplay bị chặn bởi trình duyệt:", err);
-  });
-});
 const audio = document.getElementById('audio');
 const disc = document.getElementById('disc');
 const playPauseBtn = document.getElementById('playPauseBtn');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
+const trackTitle = document.getElementById('trackTitle'); // nhớ có trong HTML!
 
 let isPlaying = false;
+
+const tracks = [
+  { name: "Ngôi sao lẻ loi Remix", file: "Music/Music1.mp3" },
+  { name: "Chỉ là anh không biết Remix", file: "Music/Music2.mp3" },
+  { name: "Địa ngục trần gian Remix", file: "Music/Music3.mp3" },
+  { name: "Chợt nhận ra Remix", file: "Music/Music4.mp3" }
+];
+
+
+let currentTrackIndex = 0;
+
+// Hàm load nhạc và play
+function loadTrack(index) {
+  if (index >= 0 && index < tracks.length) {
+    audio.src = tracks[index];
+    audio.play().then(() => {
+      isPlaying = true;
+      disc.style.animationPlayState = 'running';
+      playPauseBtn.innerHTML = '<i class="ri-pause-line"></i>';
+    });
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  loadTrack(currentTrackIndex);
+});
 
 playPauseBtn.addEventListener('click', () => {
   if (!isPlaying) {
@@ -30,13 +47,21 @@ playPauseBtn.addEventListener('click', () => {
 });
 
 prevBtn.addEventListener('click', () => {
-  audio.currentTime = 0; // hoặc chuyển bài sau nếu có playlist
+  currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+  loadTrack(currentTrackIndex);
 });
 
 nextBtn.addEventListener('click', () => {
-  audio.currentTime = audio.duration - 1; // tua tới gần cuối
+  currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+  loadTrack(currentTrackIndex);
 });
 
+document.getElementById('startBtn').addEventListener('click', () => {
+  document.getElementById('startOverlay').style.display = 'none';
+  loadTrack(currentTrackIndex);
+});
+
+// Ảnh nổi 💖
 function createFloatingImage() {
   const img = document.createElement('img');
   img.src = 'Picture/heart.jpg';
@@ -49,12 +74,12 @@ function createFloatingImage() {
 }
 setInterval(createFloatingImage, 500);
 
-// ❌ Chặn chuột phải
+// Chặn chuột phải
 document.addEventListener('contextmenu', function (e) {
   e.preventDefault();
 });
 
-// ❌ Chặn phím F12, Ctrl+Shift+I, Ctrl+U
+// Chặn F12, Ctrl+Shift+I/J, Ctrl+U
 document.addEventListener('keydown', function (e) {
   if (
     e.key === 'F12' ||
@@ -64,11 +89,24 @@ document.addEventListener('keydown', function (e) {
     e.preventDefault();
   }
 });
+document.title = "🎵 Đang phát: " + tracks[index].split("/").pop();
+function loadTrack(index) {
+  if (index >= 0 && index < tracks.length) {
+    audio.src = tracks[index].file;
+    audio.play().then(() => {
+      isPlaying = true;
+      disc.style.animationPlayState = 'running';
+      playPauseBtn.innerHTML = '<i class="ri-pause-line"></i>';
 
-document.getElementById('startBtn').addEventListener('click', () => {
-  document.getElementById('startOverlay').style.display = 'none';
-  audio.play();
-  disc.style.animationPlayState = 'running';
-  playPauseBtn.innerHTML = '<i class="ri-pause-line"></i>';
-  isPlaying = true;
-});
+      const trackName = tracks[index].name;
+      document.title = "🎵 " + trackName + " - Duy Đinh";
+
+      const titleElement = document.getElementById("trackTitle");
+      if (titleElement) {
+        titleElement.textContent = "🎵 Đang phát: " + trackName;
+      }
+    });
+  }
+}
+
+
