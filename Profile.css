@@ -81,7 +81,7 @@ a:active {
   height: 100px;
   margin: 20px auto;
   border-radius: 50%;
-  background: url('../Picture/cd.jpg') center/cover no-repeat;
+  background: url('Picture/cd.jpg') center/cover no-repeat;
   animation: spin 3s linear infinite;
   animation-play-state: paused;
 }
