@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Quản lý nhạc | Duy Đinh</title><link rel="icon" href="Picture/favicon.png">
+  <link rel="stylesheet" href="admin.css"><link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+  <main class="admin-shell">
+    <header><a href="/" class="back">← Về trang hồ sơ</a><h1>Quản lý nhạc</h1><p>Thêm bài hát từ trình duyệt. Danh sách phát trên trang hồ sơ sẽ tự cập nhật.</p></header>
+    <section id="loginCard" class="panel">
+      <h2>Đăng nhập quản trị</h2><form id="loginForm"><label for="password">Mật khẩu quản trị</label><input id="password" type="password" autocomplete="current-password" required><button type="submit">Đăng nhập</button></form>
+    </section>
+    <section id="adminArea" hidden>
+      <div class="panel"><div class="panel-heading"><h2>Thêm bài hát</h2><button id="logoutBtn" class="secondary" type="button">Đăng xuất</button></div>
+        <form id="trackForm" enctype="multipart/form-data">
+          <label for="name">Tên bài hát *</label><input id="name" name="name" maxlength="120" required placeholder="Ví dụ: Ngôi sao lẻ loi Remix">
+          <label for="artist">Nghệ sĩ (không bắt buộc)</label><input id="artist" name="artist" maxlength="120" placeholder="Tên nghệ sĩ / DJ">
+          <label for="audioFile">File nhạc * (MP3, OGG, WAV, M4A, AAC; tối đa 30 MB)</label><input id="audioFile" name="audio" type="file" accept=".mp3,.ogg,.wav,.m4a,.aac,audio/*" required>
+          <label for="coverFile">Ảnh bìa (không bắt buộc, JPG/PNG/WEBP)</label><input id="coverFile" name="cover" type="file" accept=".jpg,.jpeg,.png,.webp,image/*">
+          <button type="submit" id="addBtn">Thêm bài hát</button><p id="formMessage" class="message" role="status"></p>
+        </form>
+      </div>
+      <div class="panel"><h2>Danh sách bài hát</h2><p class="hint">Bài đã có trong thư mục Music/ vẫn được giữ nguyên. Khi xóa bài tải lên từ trang quản trị, file tương ứng trong uploads/ cũng được xóa.</p><div id="trackList" class="track-list"></div></div>
+    </section>
+    <p id="globalMessage" class="message" role="status"></p>
+  </main>
+  <script src="admin.js"></script>
+</body></html>

@@ -1,0 +1,51 @@
+[
+  {
+    "id": "music1",
+    "name": "Ngôi sao lẻ loi Remix",
+    "artist": "",
+    "file": "Music/Music1.mp3",
+    "cover": "Picture/cd.jpg"
+  },
+  {
+    "id": "music2",
+    "name": "Chỉ là anh không biết Remix",
+    "artist": "",
+    "file": "Music/Music2.mp3",
+    "cover": "Picture/cd.jpg"
+  },
+  {
+    "id": "music3",
+    "name": "Địa ngục trần gian Remix",
+    "artist": "",
+    "file": "Music/Music3.mp3",
+    "cover": "Picture/cd.jpg"
+  },
+  {
+    "id": "music4",
+    "name": "Chợt nhận ra Remix",
+    "artist": "",
+    "file": "Music/Music4.mp3",
+    "cover": "Picture/cd.jpg"
+  },
+  {
+    "id": "2b49c7ab-093a-41cb-a1d1-58321dd22ab0",
+    "name": "Thằng này vội Remix",
+    "artist": "",
+    "file": "/uploads/music/1792709601388-9a33ffc482.mp3",
+    "cover": "/Picture/cd.jpg"
+  },
+  {
+    "id": "1c85ef6a-2c15-491c-b6ad-5c204a7100a7",
+    "name": "Superman x le tour de trance",
+    "artist": "",
+    "file": "/uploads/music/1792709846408-79b9764f7a.mp3",
+    "cover": "/Picture/cd.jpg"
+  },
+  {
+    "id": "9361308a-83a0-4c4e-b3ac-468753d1a42d",
+    "name": "ES.BEATS",
+    "artist": "",
+    "file": "/uploads/music/1792710016955-cd60fd1aa0.mp3",
+    "cover": "/Picture/cd.jpg"
+  }
+]

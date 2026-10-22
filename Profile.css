@@ -173,3 +173,28 @@ a:active {
 }
 
 
+
+/* Trình phát nhạc mở rộng, giữ phong cách tối/neon hiện tại */
+.music-player { width: min(340px, 82vw); margin-top: 20px; color: #fff; }
+.track-title { color: #fff; font-weight: 700; max-width: 320px; overflow-wrap: anywhere; margin: 8px auto 12px; text-shadow: 0 0 8px #0ff; }
+.progress-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #ddd; }
+#progress { flex: 1; min-width: 0; accent-color: #00f0ff; cursor: pointer; }
+.buttons { display: flex; justify-content: center; align-items: center; gap: 7px; }
+.buttons button { border: 1px solid rgba(0,240,255,.55); border-radius: 50%; width: 42px; height: 42px; padding: 0; color: #fff; background: rgba(0,0,0,.55); box-shadow: 0 0 9px rgba(0,240,255,.25); }
+.buttons button:hover, .buttons button.enabled { color: #00f0ff; box-shadow: 0 0 13px #00f0ff; }
+.buttons button#playPauseBtn { width: 48px; height: 48px; font-size: 20px; }
+.playlist-panel { margin-top: 12px; text-align: left; font-size: 13px; }
+.playlist-panel summary { cursor: pointer; color: #00f0ff; text-align: center; padding: 6px; }
+.playlist { max-height: 135px; overflow-y: auto; margin-top: 5px; }
+.playlist-item { width: 100%; display: flex; flex-direction: column; text-align: left; gap: 3px; margin: 0; padding: 8px 10px; border: 0; border-bottom: 1px solid rgba(255,255,255,.12); border-radius: 4px; color: #fff; background: rgba(0,0,0,.22); cursor: pointer; }
+.playlist-item small { color: #bbb; }
+.playlist-item.active { color: #00f0ff; background: rgba(0,240,255,.1); }
+.admin-link { display: inline-block; margin-top: 10px; font-size: 11px; color: #aaa; text-decoration: none; }
+.admin-link:hover { color: #00f0ff; }
+body { overflow-y: auto; min-height: 100vh; height: auto; }
+.page-center { min-height: 100vh; height: auto; padding: 20px 0; box-sizing: border-box; }
+@media (max-width: 480px) {
+  .profile-wrapper { width: calc(100% - 28px); box-sizing: border-box; padding: 20px 12px; }
+  .rainbow-text { font-size: 27px; }
+  .avatar { width: 125px; height: 125px; }
+}

@@ -30,12 +30,24 @@
 
     <div class="music-player">
       <div class="disc" id="disc"></div>  
-      <audio id="audio" autoplay loop></audio>
-      <div class="buttons">
-        <button id="prevBtn"><i class="ri-skip-left-fill"></i></button>
-        <button id="playPauseBtn"><i class="ri-play-line"></i></button>
-        <button id="nextBtn"><i class="ri-skip-right-fill"></i></button>
+      <audio id="audio" preload="metadata"></audio>
+      <div id="trackTitle" class="track-title">Đang tải danh sách nhạc...</div>
+      <div class="progress-row">
+        <span id="currentTime">0:00</span>
+        <input id="progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Tiến trình bài hát">
+        <span id="duration">0:00</span>
       </div>
+      <div class="buttons">
+        <button id="shuffleBtn" title="Bật phát ngẫu nhiên" aria-label="Phát ngẫu nhiên" aria-pressed="false"><i class="ri-shuffle-line"></i></button>
+        <button id="prevBtn" aria-label="Bài trước"><i class="ri-skip-left-fill"></i></button>
+        <button id="playPauseBtn" aria-label="Phát nhạc"><i class="ri-play-line"></i></button>
+        <button id="nextBtn" aria-label="Bài tiếp theo"><i class="ri-skip-right-fill"></i></button>
+      </div>
+      <details class="playlist-panel">
+        <summary>Danh sách phát</summary>
+        <div id="playlist" class="playlist"></div>
+      </details>
+      <a class="admin-link" href="/admin" target="_blank" rel="noopener">Quản lý nhạc</a>
     </div>
   </div>
 </div>
